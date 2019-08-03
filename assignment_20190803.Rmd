@@ -1,0 +1,29 @@
+---
+title: "GRAD 695-51-B-2019/Summer - In-class Assignment"
+author: "Tian-Liang Huang"
+date: "August 3, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+With the income data, I would like to know whether male workers have more income than female workers for all industries on average.
+
+## Analysis
+
+Firstly we take an overview of the data.
+
+```{r}
+rawdata = read.csv('income.csv')
+summary(rawdata)
+```
+
+Remove all the rows having 'NA'.
+
+```{r}
+data = rawdata[rowSums(is.na(rawdata[ , 2:8])) == 0, ]
+```
